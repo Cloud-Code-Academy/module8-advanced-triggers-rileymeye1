@@ -19,32 +19,35 @@ Let's dive into the specifics of each operation:
 */
 trigger AccountTrigger on Account (before insert, after insert) {
 
+    AccountTriggerHandler handler = new AccountTriggerHandler();
+    handler.run();
+
     /*
     * Account Trigger
     * When an account is inserted change the account type to 'Prospect' if there is no value in the type field.
     * Trigger should only fire on insert.
     */
-    if (Trigger.isBefore && Trigger.isInsert) {
-        AccountHelper.setTypeProspect(Trigger.new);
-    }
+    // if (Trigger.isBefore && Trigger.isInsert) {
+    //     AccountHelper.setTypeProspect(Trigger.new);
+    // }
 
     /*
     * Account Trigger
     * When an account is inserted copy the shipping address to the billing address.
     * Trigger should only fire on insert.
     */
-    if (Trigger.isBefore && Trigger.isInsert) {
-        AccountHelper.addressCopy(Trigger.new);
-    }
+    // if (Trigger.isBefore && Trigger.isInsert) {
+    //     AccountHelper.addressCopy(Trigger.new);
+    // }
 
     /*
     * Account Trigger
     * When an account is inserted set the rating to 'Hot' if the Phone, Website, and Fax is not empty.
     * Trigger should only fire on insert.
     */
-    if (Trigger.isBefore && Trigger.isInsert) {
-        AccountHelper.setRating(Trigger.new);
-    }
+    // if (Trigger.isBefore && Trigger.isInsert) {
+    //     AccountHelper.setRating(Trigger.new);
+    // }
     
     /*
     * Account Trigger
@@ -53,7 +56,7 @@ trigger AccountTrigger on Account (before insert, after insert) {
     * Email = 'default@email.com'
     * Trigger should only fire on insert.
     */    
-    if(Trigger.isAfter && Trigger.isInsert){     
-        AccountHelper.defaultContact(Trigger.new);
-    }
+    // if(Trigger.isAfter && Trigger.isInsert){     
+    //     AccountHelper.defaultContact(Trigger.new);
+    // }
 }

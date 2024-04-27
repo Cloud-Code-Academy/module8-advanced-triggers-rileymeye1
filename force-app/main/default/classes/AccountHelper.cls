@@ -77,6 +77,6 @@ public with sharing class AccountHelper {
             con.AccountId = acc.Id;
             contacts.add(con);
         }
-        insert contacts; 
+        Database.insert(contacts, accessLevel.USER_MODE); 
     }
 }
